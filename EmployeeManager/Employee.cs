@@ -23,6 +23,7 @@ namespace EmployeeManager
             this.hireDate = hireDate;
             this.position = position;
         }
+        
     }
        
             
