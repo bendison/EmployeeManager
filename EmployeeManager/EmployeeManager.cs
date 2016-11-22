@@ -14,13 +14,11 @@ namespace EmployeeManager
 {
     public partial class EmployeeManager : Form
     {
-
         private DatabaseConnection db = new DatabaseConnection();
 
         public EmployeeManager()
         {
             InitializeComponent();
-            MessageBox.Show(System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath) + "\\config.json");
         }
     }
 }
