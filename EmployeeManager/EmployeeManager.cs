@@ -15,10 +15,21 @@ namespace EmployeeManager
     public partial class EmployeeManager : Form
     {
         private DatabaseConnection db = new DatabaseConnection();
+        private MySqlDataAdapter dbDataAdapter;
 
         public EmployeeManager()
         {
             InitializeComponent();
+        }
+
+        private void EmployeeManager_Load(object sender, EventArgs e)
+        {
+            dbDataAdapter = new MySqlDataAdapter("select * from employees", db.connection);
+            DataSet dataSet = new DataSet();
+            dbDataAdapter.Fill(dataSet);
+            dataGridView.DataSource = dataSet.Tables[0];
+            DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
+            db.CloseConnection();
         }
     }
 }

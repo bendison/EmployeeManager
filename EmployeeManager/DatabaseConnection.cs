@@ -14,25 +14,38 @@ namespace EmployeeManager
 {
     class DatabaseConnection
     {
-        private MySqlConnection db;
+        //Add prepared statement support on server side
+
+        public MySqlConnection connection;
         private string connectionString;
         private Auth auth;
 
         public DatabaseConnection()
         {
             RetrieveConnectionInformation();
-                       
-            connectionString = $"server={auth.server};uid={auth.username};" + $"pwd={auth.password};database={auth.database};";
+
+            connectionString = $"server={auth.server};uid={auth.username};" +
+                               $"pwd={auth.password};database={auth.database};";
             try
             {
-                db = new MySqlConnection(connectionString);
-                db.Open();
+                connection = new MySqlConnection(connectionString);
+                connection.Open();
                 MessageBox.Show("Connection established successfully.");
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(
-                    $"Unable to establish a connection to the employee database. Please contact an administrator.\nError: {ex.Message}");
+                switch (ex.Number)
+                {
+                    case 0:
+                        MessageBox.Show("Cannot connect to server.  Please contact the administrator.");
+                        break;
+                    case 1045:
+                        MessageBox.Show("Invalid database username/password, please try again");
+                        break;
+                    default:
+                        MessageBox.Show(ex.Message);
+                        break;
+                }
             }
         }
 
@@ -40,7 +53,9 @@ namespace EmployeeManager
         {
             try
             {
-                auth = JsonConvert.DeserializeObject<Auth>(File.ReadAllText(@Path.GetDirectoryName(Application.ExecutablePath) + "\\config.json"));
+                auth =
+                    JsonConvert.DeserializeObject<Auth>(
+                        File.ReadAllText(@Path.GetDirectoryName(Application.ExecutablePath) + "\\config.json"));
             }
             catch (IOException ex)
             {
@@ -56,6 +71,18 @@ namespace EmployeeManager
             public string password { get; set; }
         }
 
-        
+        public bool CloseConnection()
+        {
+            try
+            {
+                connection.Close();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Unable to properly close connection to the database. Please contact an administrator.");
+                return false;                
+            }
+        }
     }
 }
