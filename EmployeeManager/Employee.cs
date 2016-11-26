@@ -22,10 +22,6 @@ namespace EmployeeManager
             this.lastName = lastName;
             this.hireDate = hireDate;
             this.position = position;
-        }
-        
-    }
-       
-            
-       
+        }        
+    }  
 }
