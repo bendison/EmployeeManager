@@ -66,12 +66,10 @@ namespace EmployeeManager
 
         private void emailEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //get 
+            string startupPath = Environment.CurrentDirectory;
+            email.sendEmail(null);
         }
-
-        private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
     }
 }
