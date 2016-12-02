@@ -9,19 +9,19 @@ namespace EmployeeManager
 {    
     class Employee
     {
-        public int id { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public DateTime hireDate { get; set; }
-        public int position { get; set; }
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime HireDate { get; set; }
+        public int Position { get; set; }
 
         public Employee(int id, string firstName, string lastName, DateTime hireDate, int position)
         {
-            this.id = id;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.hireDate = hireDate;
-            this.position = position;
+            this.Id = id;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.HireDate = hireDate;
+            this.Position = position;
         }        
     }  
 }
