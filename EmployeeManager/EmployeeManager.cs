@@ -16,9 +16,9 @@ namespace EmployeeManager
 {
     public partial class EmployeeManager : Form
     {
-        //private DatabaseConnection db = new DatabaseConnection();
-        //private MySqlDataAdapter dbDataAdapter;
         private List<Employee> employees = new List<Employee>();
+        private List<Position> positions = new List<Position>();
+        Utility util = new Utility();
 
         public EmployeeManager()
         {
@@ -27,21 +27,15 @@ namespace EmployeeManager
 
         private void EmployeeManager_Load(object sender, EventArgs e)
         {
-            /*dbDataAdapter = new MySqlDataAdapter("select * from employees", db.connection);
-            DataSet dataSet = new DataSet();
-            dbDataAdapter.Fill(dataSet);
-            dataGridView.DataSource = dataSet.Tables[0];
-            DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
-            db.CloseConnection();*/
             string json = File.ReadAllText(Path.GetDirectoryName(Application.ExecutablePath) + "\\save.json");
             employees = JsonConvert.DeserializeObject<List<Employee>>(json);
+            string p = File.ReadAllText(Path.GetDirectoryName(Application.ExecutablePath) + "\\positions.json");
+            positions = JsonConvert.DeserializeObject<List<Position>>(p);
             DataSet dataSet = ToDataSet(employees);
             dataGridView.DataSource = dataSet.Tables[0];
-            
-
-
-
         }
+
+        
 
         public static DataSet ToDataSet<T>(IList<T> employees)
         {
@@ -69,12 +63,15 @@ namespace EmployeeManager
                 //This line was missing:
                 t.Rows.Add(row);
             }
-
-
             return ds;
         }
 
         private void emailEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
