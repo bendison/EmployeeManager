@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EmployeeManager
-{    
+{   
+
     class Employee
     {
         public int Id { get; set; }
@@ -14,14 +15,16 @@ namespace EmployeeManager
         public string LastName { get; set; }
         public DateTime HireDate { get; set; }
         public int Position { get; set; }
+        public string Email { get; set; }
 
-        public Employee(int id, string firstName, string lastName, DateTime hireDate, int position)
+        public Employee(int id, string firstName, string lastName, DateTime hireDate, int position, string email)
         {
-            this.Id = id;
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.HireDate = hireDate;
-            this.Position = position;
-        }        
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            HireDate = hireDate;
+            Position = position;
+            Email = email;
+        }
     }  
 }

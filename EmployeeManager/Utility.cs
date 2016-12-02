@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace EmployeeManager
 {
@@ -13,16 +17,5 @@ namespace EmployeeManager
         }
 
         //Check that the employee ID is in fact an available position
-        public bool ValidatePID(int id)
-        {
-            foreach (Position p in Position.Values)
-            {
-                if (p.Id == id)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
 }

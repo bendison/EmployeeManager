@@ -35,10 +35,10 @@
             this.addEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emailEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.emailEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -85,6 +85,7 @@
             this.addEmployeeToolStripMenuItem.Name = "addEmployeeToolStripMenuItem";
             this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.addEmployeeToolStripMenuItem.Text = "&Add Employee";
+            this.addEmployeeToolStripMenuItem.Click += new System.EventHandler(this.addEmployeeToolStripMenuItem_Click);
             // 
             // removeEmployeeToolStripMenuItem
             // 
@@ -97,6 +98,13 @@
             this.editEmployeeToolStripMenuItem.Name = "editEmployeeToolStripMenuItem";
             this.editEmployeeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.editEmployeeToolStripMenuItem.Text = "&Edit Employee";
+            // 
+            // emailEmployeeToolStripMenuItem
+            // 
+            this.emailEmployeeToolStripMenuItem.Name = "emailEmployeeToolStripMenuItem";
+            this.emailEmployeeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.emailEmployeeToolStripMenuItem.Text = "Email Employee";
+            this.emailEmployeeToolStripMenuItem.Click += new System.EventHandler(this.emailEmployeeToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -126,15 +134,9 @@
             this.dataGridView.Location = new System.Drawing.Point(0, 24);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(966, 346);
             this.dataGridView.TabIndex = 2;
-            // 
-            // emailEmployeeToolStripMenuItem
-            // 
-            this.emailEmployeeToolStripMenuItem.Name = "emailEmployeeToolStripMenuItem";
-            this.emailEmployeeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.emailEmployeeToolStripMenuItem.Text = "Email Employee";
-            this.emailEmployeeToolStripMenuItem.Click += new System.EventHandler(this.emailEmployeeToolStripMenuItem_Click);
             // 
             // EmployeeManager
             // 
