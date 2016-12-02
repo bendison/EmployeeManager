@@ -31,5 +31,10 @@ namespace EmployeeManager
             DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
             db.CloseConnection();
         }
+
+        private void emailEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
