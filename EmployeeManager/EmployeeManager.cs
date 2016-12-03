@@ -9,9 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-//test123
-//test456
 using Newtonsoft.Json;
 
 namespace EmployeeManager
@@ -57,10 +54,8 @@ namespace EmployeeManager
                 foreach (var propInfo in elementType.GetProperties())
                 {
                     row[propInfo.Name] = propInfo.GetValue(item, null);
-                    //MessageBox.Show(row[propInfo.Name].ToString());
                 }
 
-                //This line was missing:
                 t.Rows.Add(row);
             }
             return ds;

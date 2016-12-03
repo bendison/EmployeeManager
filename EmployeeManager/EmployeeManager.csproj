@@ -78,7 +78,6 @@
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
-    <Compile Include="DatabaseConnection.cs" />
     <Compile Include="Email.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeManager.cs">
