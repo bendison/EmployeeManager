@@ -67,6 +67,5 @@ namespace EmployeeManager
             string startupPath = Environment.CurrentDirectory;
             email.sendEmail(null);
         }
- 
     }
 }
