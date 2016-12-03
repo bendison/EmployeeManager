@@ -9,7 +9,6 @@ namespace EmployeeManager
 {
     class Database
     {
-        private DataSet dataSet;
         public Database()
         {
         }

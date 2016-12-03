@@ -35,8 +35,6 @@ namespace EmployeeManager
             dataGridView.DataSource = dataSet.Tables[0];
         }
 
-        
-
         public static DataSet ToDataSet<T>(IList<T> employees)
         {
             Type elementType = typeof(T);
