@@ -51,7 +51,5 @@ namespace EmployeeManager
             }
             return true;
         }
-
-        //Check that the employee ID is in fact an available position
     }
 }
