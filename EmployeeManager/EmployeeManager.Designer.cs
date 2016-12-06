@@ -85,7 +85,7 @@
             this.addEmployeeToolStripMenuItem.Name = "addEmployeeToolStripMenuItem";
             this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.addEmployeeToolStripMenuItem.Text = "&Add Employee";
-            this.addEmployeeToolStripMenuItem.Click += new System.EventHandler(this.addEmployeeToolStripMenuItem_Click);
+            this.addEmployeeToolStripMenuItem.Click += new System.EventHandler(this.addEmployeeButton_Click);
             // 
             // removeEmployeeToolStripMenuItem
             // 
@@ -98,6 +98,7 @@
             this.editEmployeeToolStripMenuItem.Name = "editEmployeeToolStripMenuItem";
             this.editEmployeeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.editEmployeeToolStripMenuItem.Text = "&Edit Employee";
+            this.editEmployeeToolStripMenuItem.Click += new System.EventHandler(this.editEmployeeToolStripMenuItem_Click);
             // 
             // emailEmployeeToolStripMenuItem
             // 

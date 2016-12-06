@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace EmployeeManager
 {
-    class Position
+    public class Position
     {
         public int ID { get; set; }
         public string Title { get; set; }

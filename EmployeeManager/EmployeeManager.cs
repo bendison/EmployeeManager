@@ -15,7 +15,7 @@ namespace EmployeeManager
 {
     public partial class EmployeeManager : Form
     {
-        private List<Employee> employees = new List<Employee>();
+        public List<Employee> employees = new List<Employee>();
         private List<Position> positions = new List<Position>();
         Utility util = new Utility();
 
@@ -40,14 +40,12 @@ namespace EmployeeManager
             DataSet ds = new DataSet();
             DataTable t = new DataTable();
             ds.Tables.Add(t);
-
-            //add a column to table for each public property on T
+            
             foreach (var propInfo in elementType.GetProperties())
             {
                 t.Columns.Add(propInfo.Name, propInfo.PropertyType);
             }
-
-            //go through each property on T and add each value to the table
+            
             foreach (T item in employees)
             {
                 DataRow row = t.NewRow();
@@ -59,13 +57,36 @@ namespace EmployeeManager
                 t.Rows.Add(row);
             }
             return ds;
-        }
+        }        
 
         private void emailEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //get 
             string startupPath = Environment.CurrentDirectory;
-            email.sendEmail(null);
+            //email.sendEmail(null);
         }
+
+        private void addEmployeeButton_Click(object sender, EventArgs e)
+        {              
+            EmployeeBox employeeBox = new EmployeeBox(employees);
+            employeeBox.LoadEmployeePositions(positions);
+            employeeBox.ShowDialog();
+            dataGridView.Refresh();
+        }
+
+        private void editEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView.SelectedRows.Count != 0)
+            {
+                DataGridViewRow currentRow = dataGridView.CurrentRow;
+                string firstName = currentRow.Cells[1].Value.ToString();
+                string lastName = currentRow.Cells[2].Value.ToString();
+                EmployeeBox employeeBox = new EmployeeBox(employees, firstName, lastName);
+                employeeBox.LoadEmployeePositions(positions);
+                employeeBox.ShowDialog();
+                return;
+            }
+            MessageBox.Show("You must have an employee selected");
+        }
+       
     }
 }
